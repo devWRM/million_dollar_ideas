@@ -9,8 +9,14 @@ class ApplicationController < Sinatra::Base
     end
 
     get '/' do
+        # session[:hey] = "Say what?"
+        @world = "Wonderful World!"
         "Hello World"
     end
 
+    get '/task' do
+        # session[:hey]
+        @world
+    end
 
 end
