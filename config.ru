@@ -7,3 +7,6 @@ use Rack::MethodOverride
 
 
 # run Main controller ,  use all others
+run ApplicationController
+
+
