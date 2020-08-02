@@ -1,4 +1,6 @@
 
+RESOURCE: http://sinatrarb.com/faq.html
+
 ORDER OF PROJECT BUILD
 
 STEP 1: Set up folders and files
@@ -32,6 +34,19 @@ STEP 4: Build Main Controller
         * Make an application_controller.rb file and build the class ApplicationController to inherit from Sinatra::Base
         * Then in the config.ru file: run ApplicationController.rb
         * Now test shotgun
+
+_______________________________________________________________________
+
+STEP 5: Build out Sessions (for Authentication)
+Resource: http://sinatrarb.com/faq.html#sessions
+Sessions video 10:00
+https://www.youtube.com/watch?time_continue=66&v=_S1s6R-_wYc&feature=emb_logo
+        NOTE @instance variables do NOT work in route-methods but sessions[:key_name] does because state maintained by cookie!
+
+        
+
+
+
 
 
 
