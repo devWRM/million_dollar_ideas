@@ -1,5 +1,5 @@
 
-class Ideas_controller < ApplicationController
+class IdeasController < ApplicationController
 
 
 

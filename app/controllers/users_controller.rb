@@ -1,6 +1,6 @@
 
 
-class Users_controller < ApplicationController
+class UsersController < ApplicationController
 
 
 
