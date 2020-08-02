@@ -4,7 +4,7 @@ class CreateIdeas < ActiveRecord::Migration[5.2]
       t.string :title
       t.string :inspiration
       t.string :summary
-      t.datetime :date_created
+      t.datetime :date_created, default: -> { 'CURRENT_TIMESTAMP' }
   # Above input is MANDATORY
       t.string :timeline_plan
       t.datetime :deadline_date
