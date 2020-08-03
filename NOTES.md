@@ -41,9 +41,9 @@ STEP 5: Build out Sessions (for Authentication) to ensure user logged in on any 
 Resource: http://sinatrarb.com/faq.html#sessions
 Sessions video 10:00
 https://www.youtube.com/watch?time_continue=66&v=_S1s6R-_wYc&feature=emb_logo
-        NOTE @instance variables do NOT work in route-methods but sessions[:key_name] does because state maintained by cookie!
+        NOTE @instance variables do NOT work in block-methods but sessions[:key_name] does because state maintained by cookie!
 
-        * SessionsController get '/login' route-method goes to (login.html.erb file) Login page. After a user fills it in & submits, the /sessions action/path in the form boomerangs it back to SessionsController to POST method/request. In post '/sessions' route-method, assign the user entered email to session[:email] and also redirects it to get '/ideas' sending the user entered email in session[:email] to the IdeasController.
+        * SessionsController get '/login' block-method goes to (login.html.erb file) Login page. After a user fills it in & submits, the /sessions action/path in the form boomerangs it back to SessionsController to POST method/request. In post '/sessions' block-method, assign the user entered email to session[:email] and also redirects it to get '/ideas' sending the user entered email in session[:email] to the IdeasController.
         NOTE 26:20 In binding.pry you can check session to see if it contains an email address.
 _______________________________________________________________________
 
