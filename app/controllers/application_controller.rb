@@ -40,6 +40,13 @@ class ApplicationController < Sinatra::Base
             # 30:30 PostsController uses if statements with: !session[:email] 
         end
 
+        def login(email) 
+            session[:email] = email
+        end
+
+        def logout
+            session.clear
+        end
 
 
     end

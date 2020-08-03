@@ -11,15 +11,15 @@ class SessionsController < ApplicationController
         ### NOTE Should be an if statement checking that an email exists ex. if params[:email] == ""  'Please enter an email'
     
         # raise params.inspect
-        session[:email] = params[:email]
+        login(params[:email])                # Transferred to login helpers: session[:email] = params[:email]
         # raise session[:email].inspect
 
         redirect '/ideas'
-
     end
 
     get '/logout' do
-        session.clear
+        logout              # Transferred to logout helpers:    session.clear
+        redirect '/ideas'
     end
 
 
