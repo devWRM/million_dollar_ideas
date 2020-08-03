@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
 
     # NOTE Nowhere never do we call SessionsController.new but we do create a session that does or does not have an email
 
-    get '/login' do
+    get '/login' do     # '/sessions/new'
         erb :"sessions/login.html"
     end
 

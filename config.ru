@@ -1,6 +1,8 @@
 
 require_relative "./config/environment"
 
+# Allows 
+# Keep this requirement at the top of the page
 require "./config/environment"
 use Rack::MethodOverride
 

@@ -36,7 +36,7 @@ class ApplicationController < Sinatra::Base
             # THEN SPECIFICALLY at 25:50 the session hash does NOT have an email key
             # BUT SPECIFICALLY at 26:20 the session has has an email key after Avi deleted from config.ru:   use Rack::Session::Cookie
 
-            # Avi uses only this code and it works for him:  !!session[:email]
+            # 34:30 Avi uses only this code and it works for him:  !!session[:email]
             # 30:30 PostsController uses if statements with: !session[:email] 
         end
 
