@@ -51,6 +51,13 @@ STEP 6: The IdeasController need conditions to block non-logged in activity. Put
 27:00
     NOTE If email is NOT entered there is still a session but it does not have an email address.
 
+NOTE: !session[:email] - DIFFERS FROM - !logged_in?
+    !session[:email] tests if the email key exists or not WHILE... 
+    !logged_in? tests for an empty string value
+
+
+
+
 ******** continue in video at 34:00 ********
 
 

@@ -12,7 +12,7 @@ class ApplicationController < Sinatra::Base
     get '/' do
         # session[:hey] = "Say what?"
         @world = "Wonderful World!"
-        "Hello World"
+        "Welcome to the Homepage of Million Dollar Ideas"
     end
 
     # Testing
@@ -25,7 +25,18 @@ class ApplicationController < Sinatra::Base
     helpers do
 
         def logged_in?
-            !!session[:email]
+            !!session[:email] && session[:email] != ""
+            # NOTE Why do I have to use both
+            # BECAUSE Need an email key to exist && need the value not to be an empty string
+
+            # NOTE  !session[:email] is NOT testing for the presence of an empty string so...       what is it testing for ?????
+            # CONCLUSION I believe Avi can use !!session[:email] because the email key does not exist in his session hash when an email address was not entered by user HOWEVER an email key does exist for me but it has an empty string
+            # NOTE Avi debug error 23:00 in video:  https://www.youtube.com/watch?time_continue=66&v=_S1s6R-_wYc&feature=emb_logo
+            # SPECIFICALLY 23:49 Avi expected session[:email] to contain the user email address input from params[:email] while in PostsController but the message did NOT print out a value for session[:email]
+            # THEN SPECIFICALLY at 25:50 the session hash does NOT have an email key
+            # BUT SPECIFICALLY at 26:20 the session has has an email key after Avi deleted from config.ru:   use Rack::Session::Cookie
+
+            # Avi code:  !!session[:email]
         end
 
 
@@ -39,6 +50,6 @@ class ApplicationController < Sinatra::Base
 
 
 
-    
+
 
 end
