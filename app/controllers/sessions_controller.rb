@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
         ### NOTE Should be an if statement checking that an email exists ex. if params[:email] == ""  'Please enter an email'
     
         # raise params.inspect
+        # collecting the params entry and passing it into the login method call
         login(params[:email])                # Transferred to login helpers: session[:email] = params[:email]
         # raise session[:email].inspect
 
