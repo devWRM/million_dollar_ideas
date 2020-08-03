@@ -5,6 +5,11 @@ class IdeasController < ApplicationController
 
         # binding.pry       <= session
         # raise session[:email].inspect
+        if !logged_in?
+            "Login please"
+            redirect "/login"
+        end
+
         "You're currently logged in as " + session[:email]
     end
 
