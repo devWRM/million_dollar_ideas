@@ -45,6 +45,17 @@ https://www.youtube.com/watch?time_continue=66&v=_S1s6R-_wYc&feature=emb_logo
 
         * SessionsController get '/login' route-method goes to (login.html.erb file) Login page. After a user fills it in & submits, the /sessions action/path in the form boomerangs it back to SessionsController to POST method/request. In post '/sessions' route-method, assign the user entered email to session[:email] and also redirects it to get '/ideas' sending the user entered email in session[:email] to the IdeasController.
         NOTE 26:20 In binding.pry you can check session to see if it contains an email address.
+_______________________________________________________________________
+
+STEP 6: The IdeasController need conditions to block non-logged in activity. Put these special conditional methods inside a helper method so that they're accessible across all controllers. The helper method should be located in the ApplicationController since all other controllers inherit from it. All controllers will call on these "helper" methods inherited from the ApplicationController to set conditions to block non-logged in activity. 
+27:00
+    NOTE If email is NOT entered there is still a session but it does not have an email address.
+
+******** continue in video at 34:00 ********
+
+
+
+
 
 
 
