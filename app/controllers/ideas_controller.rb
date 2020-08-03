@@ -36,6 +36,7 @@ class IdeasController < ApplicationController
     end
 
     get '/ideas/:id/edit' do
+        # NOTE Substitute any number for :id when checking this block-method in the browser
 
         if !logged_in?
             redirect '/login'
