@@ -59,11 +59,17 @@ _______________________________________________________________________
 
 STEP 7: Ensure user logging in has signed up previously. Build the password functionality.
 
-NOTE Howard video links:
+NOTE Avi video link:
+    https://www.youtube.com/watch?time_continue=66&v=_S1s6R-_wYc&feature=emb_logo
+
+NOTE Howard video links in GitHub:
     https://github.com/howardbdev/sinatra-journal-app/blob/master/video_links.md
 
 
-******** continue in video at 55:00 ********
+
+******** seeds Howard video 55:00 ********
+
+******** continue in Avi video at 55:00 ********
 
 
 
