@@ -4,7 +4,8 @@ RESOURCE: http://sinatrarb.com/faq.html
 ORDER OF PROJECT BUILD
 
 STEP 1: Set up folders and files
-
+    Howard video: https://www.youtube.com/watch?v=y5XHoP5qwfY&feature=youtu.be
+    23:00 Howard explains: use Rack::MethodOverride
 
 STEP 2: Build Model classes
 
@@ -58,6 +59,9 @@ _______________________________________________________________________
 
 STEP 7: Ensure user logging in has signed up previously. Build the password functionality.
 
+NOTE Howard video links:
+    https://github.com/howardbdev/sinatra-journal-app/blob/master/video_links.md
+
 
 ******** continue in video at 55:00 ********
 
@@ -69,6 +73,14 @@ STEP 7: Ensure user logging in has signed up previously. Build the password func
 
 
 
+Original for file: login.html.erb
+# <h3>Login Page</h3>
+
+# <form action="/sessions" method="POST">
+#     <label for="email">Enter your email address</label>
+#     <input type="text" name="email" id="email" />
+#     <input type="submit" />
+# </form>
 
 
 
