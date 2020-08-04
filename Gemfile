@@ -16,3 +16,5 @@ gem "shotgun"
 gem "rack"
 gem 'bcrypt', '~> 3.1.7'
 
+
+gem "tux"
