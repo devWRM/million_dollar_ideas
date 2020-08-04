@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_04_032052) do
+ActiveRecord::Schema.define(version: 2020_08_04_181425) do
 
   create_table "ideas", force: :cascade do |t|
     t.string "title"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2020_08_04_032052) do
     t.integer "remaining_budgeted_dollars"
     t.boolean "within_budget"
     t.integer "user_id"
+    t.string "category"
   end
 
   create_table "users", force: :cascade do |t|
