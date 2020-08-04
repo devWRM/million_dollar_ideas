@@ -54,11 +54,12 @@ STEP 6: The IdeasController need conditions to block non-logged in activity. Put
 NOTE: !session[:email] - DIFFERS FROM - !logged_in?
     !session[:email] tests if the email key exists or not WHILE... 
     !logged_in? tests for an empty string value
+_______________________________________________________________________
+
+STEP 7: Ensure user logging in has signed up previously. Build the password functionality.
 
 
-
-
-******** continue in video at 34:00 ********
+******** continue in video at 55:00 ********
 
 
 
