@@ -12,6 +12,7 @@ class SessionsController < ApplicationController
     end
 
     post '/sessions' do
+
         ### NOTE Should be an if statement checking that an email exists ex. if params[:email] == ""  'Please enter an email'
     
         # raise params.inspect
@@ -57,10 +58,25 @@ class SessionsController < ApplicationController
 
     post '/users' do
 
-        "You created a brand new user which means your sign up succeeded!"
+        "You made it to the route where brand new users will be created, which means your sign up succeeded!"
 
         # Create new user
         # Persist new user to the database
+
+        # Verify data exists then create & presist with:        @user = User.create(params)
+        # params => {"email"=>"abe@email.com", "password"=>"abe"}
+        
+        if params[:name] != "" && params[:email] != "" && params[:password] != ""
+            # Use params for mass assignment:   User.create(params)
+            @user = User.create(params)
+
+            # Send to user's show page: 35:00 Howard video: https://www.youtube.com/watch?v=Xc02QEeYrcs&feature=youtu.be
+            redirect "/users/#{@user.id}"
+            # It is the job of get '/users/:id' block-method to show:    erb :'/users/show'
+            
+        else
+            "Enter valid signup data"
+        end
 
     end
 
@@ -69,8 +85,10 @@ class SessionsController < ApplicationController
 
     get '/users/:id' do
 
-        dreamer = (User.find_by(email: session[:email]))[:name]
-        "User  ** #{dreamer.upcase} **  landing show page route"
+        erb :'/users/show'
+
+                        ##### dreamer = (User.find_by(email: session[:email]))[:name]
+                        ##### "User  ** #{dreamer.upcase} **  landing show page route"
         # User.find_by(email: session[:email])
         # (User.find_by(email: session[:email]))[:name]
     end
