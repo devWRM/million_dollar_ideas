@@ -25,7 +25,10 @@ class ApplicationController < Sinatra::Base
     helpers do
 
         def logged_in?
-            !!session[:email] && session[:email] != ""
+            # ORIGINAL:     !!session[:email] && session[:email] != ""
+
+            !!current_user
+
             # NOTE Why do I have to use both
             # BECAUSE Need an email key to exist && need the value not to be an empty string
 
@@ -46,6 +49,15 @@ class ApplicationController < Sinatra::Base
 
         def logout
             session.clear
+        end
+
+
+        def current_user
+            # Use find_by instead of find to get a nil return instead of an error
+            # User.find(session[:user_id])
+            @current_user ||= User.find_by(id: session[:user_id])
+            # Above is memoization: once set, won't make another database call unless new ApplicationController created
+
         end
 
 
