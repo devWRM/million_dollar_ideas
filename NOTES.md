@@ -78,10 +78,32 @@ NOTE Howard video links in GitHub:
 NOTE 01:00:00 Howard video explains MEMOIZTION (to avoid multiple database calls)
     https://www.youtube.com/watch?v=U5glnUNaJPs&feature=youtu.be
     Example:    @current_user ||= User.find_by(id: session[:user_id])
+_______________________________________________________________________
 
-******** seeds Howard video 55:00 ********
+STEP 8: Build out Signup 
 
-******** continue in Avi video at 55:00 ********
+NOTE Howard video link opens with explanation of how BYCRYPT works:
+    sinatra journal app part 3
+    https://www.youtube.com/watch?v=Xc02QEeYrcs&feature=youtu.be
+        - include gem in Gemfile
+            gem 'bcrypt', '~> 3.1.7'
+        - include macro in User model class
+            has_secure_password
+        - which gives access to ActiveRecord method authenticate in...
+        post '/sessions'  <=same as=> post '/login'
+            @user.authenticate(params[:password])
+
+NOTE 10:30 When testing signup (with shotgun) in the browser:
+    In the terminal (9393) will show the request: GET /signup HTTP
+    The number 200 means it was successful
+
+NOTE 13:00 Explains RESTful convention
+    When you create something new (ex. user) in the database:
+        method => post
+        action => the plural of what's being created (ex. users)
+
+NOTE 25:30 Create new user and persist to the database
+
 
 
 
