@@ -65,7 +65,19 @@ NOTE Avi video link:
 NOTE Howard video links in GitHub:
     https://github.com/howardbdev/sinatra-journal-app/blob/master/video_links.md
 
+    Use rake console & seed data to test the authenticate method: abe.authenticate("abe")
+    NOTE To render, use quotation marks when a slash (/) denotes a folder
+        ex.     erb :login     -but-       erb :"sessions/login"
 
+    NOTE Reference ApplicationController helper method: def current_user
+            find will return an error if not found, example:
+                User.find(session[:user_id])
+            find_by will return nil if not found, example:
+                User.find_by(id: session[:user_id])
+
+NOTE 01:00:00 Howard video explains MEMOIZTION (to avoid multiple database calls)
+    https://www.youtube.com/watch?v=U5glnUNaJPs&feature=youtu.be
+    Example:    @current_user ||= User.find_by(id: session[:user_id])
 
 ******** seeds Howard video 55:00 ********
 

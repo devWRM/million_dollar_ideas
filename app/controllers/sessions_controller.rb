@@ -34,7 +34,7 @@ class SessionsController < ApplicationController
             session[:user_id] = @user.id
 
             # redirect to user's landing show page
-            redirect "users/#{@user.id}"
+            redirect "/users/#{@user.id}"
             #  xxxxx     erb :"sessions/user.html"      <=> user.html.erb file
 
 
@@ -51,11 +51,17 @@ class SessionsController < ApplicationController
 
   
     get '/signup' do
+        # This will show/render signup form
+        erb :"sessions/signup"
 
     end
 
+
+
+
     get '/users/:id' do
-        "User's landing show page route"
+binding.pry
+        "User #{@user} landing show page route"
     end
 
 
