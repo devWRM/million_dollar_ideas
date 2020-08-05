@@ -53,6 +53,14 @@ class SessionsController < ApplicationController
     get '/signup' do
         # This will show/render signup form
         erb :"sessions/signup"
+    end
+
+    post '/users' do
+
+        "You created a brand new user which means your sign up succeeded!"
+
+        # Create new user
+        # Persist new user to the database
 
     end
 
@@ -60,8 +68,11 @@ class SessionsController < ApplicationController
 
 
     get '/users/:id' do
-binding.pry
-        "User #{@user} landing show page route"
+
+        dreamer = (User.find_by(email: session[:email]))[:name]
+        "User  ** #{dreamer.upcase} **  landing show page route"
+        # User.find_by(email: session[:email])
+        # (User.find_by(email: session[:email]))[:name]
     end
 
 
