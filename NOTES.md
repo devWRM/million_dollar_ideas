@@ -104,6 +104,9 @@ NOTE 13:00 Explains RESTful convention
 
 NOTE 25:30 Create new user and persist to the database
 
+NOTE 35:00 redirect (url address)   -vs-    erb (file path) render
+    Render (erb) from get block-methods only: erb uses @instance_variables
+    Redirect from post, patch, delete
 
 
 
