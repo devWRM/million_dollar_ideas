@@ -112,7 +112,7 @@ class SessionsController < ApplicationController
 
     get '/logout' do
         logout              # Transferred to logout helpers:    session.clear
-        redirect '/ideas'
+        redirect '/'
     end
 
 
