@@ -70,6 +70,11 @@ class SessionsController < ApplicationController
             # Use params for mass assignment:   User.create(params)
             @user = User.create(params)
 
+
+            # Courtesy login: create their session (assign key value pair to session hash)
+            session[:user_id] = @user.id
+
+
             # Send to user's show page: 35:00 Howard video: https://www.youtube.com/watch?v=Xc02QEeYrcs&feature=youtu.be
             redirect "/users/#{@user.id}"
             # It is the job of get '/users/:id' block-method to show:    erb :'/users/show'
@@ -84,6 +89,9 @@ class SessionsController < ApplicationController
 
 
     get '/users/:id' do
+
+        # Using @user so the erb file has access to it
+        @user = User.find_by(id: params[:id])
 
         erb :'/users/show'
 
