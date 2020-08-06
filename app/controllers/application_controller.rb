@@ -13,7 +13,17 @@ class ApplicationController < Sinatra::Base
         # session[:hey] = "Say what?"
         # @world = "Wonderful World!"
         # "Welcome to the Homepage of MILLION DOLLAR IDEAS"
-        erb :'welcome'
+
+        # erb :'welcome'
+
+        if logged_in?
+            ##### MUST USE "double quotation marks" when #{interpolating} !!!
+            # redirect "/users/#{session[:user_id]}"
+            redirect "/users/#{current_user.id}"
+        else
+            erb :'welcome'
+        end
+
     end
 
     # Testing
