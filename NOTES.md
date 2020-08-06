@@ -107,6 +107,26 @@ NOTE 25:30 Create new user and persist to the database
 NOTE 35:00 redirect (url address)   -vs-    erb (file path) render
     Render (erb) from get block-methods only: erb uses @instance_variables
     Redirect from post, patch, delete
+_______________________________________________________________________
+
+STEP 9: Welcome page to tie in Signup & Login
+
+NOTE Howard video link: sinatra journal app part 4
+    https://www.youtube.com/watch?v=PXmnoCIcH7w&feature=youtu.be
+
+NOTE 14:30 & 21:00 Adds a menu/nav bar        <= to the layout page
+
+
+!!!!!!!!! 15:30 Howard refactors get '/' route with an if statement !!!!!!!!!
+    NOTE Use "DOUBLE QUOTATION MARKS" when #{INTERPOLATING}
+    - user logged in => user show page
+    - user NOT logged in => welcome page
+
+NOTE
+
+17:30
+
+
 
 
 
