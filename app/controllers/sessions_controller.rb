@@ -80,7 +80,9 @@ class SessionsController < ApplicationController
             # It is the job of get '/users/:id' block-method to show:    erb :'/users/show'
             
         else
-            "Enter valid signup data"
+            # Eventually add a failure message: "Enter valid signup data"
+
+            redirect '/signup'
         end
 
     end
