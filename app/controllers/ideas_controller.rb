@@ -31,14 +31,55 @@ class IdeasController < ApplicationController
     end
 
     get '/ideas/new' do
+        # Render a form to create a new idea
 
         if !logged_in?     # session[:email] == ""     # !session[:email]    # !logged_in?
             redirect '/login'
         else
-            "Build a new idea form"
+
+            @user = current_user
+
+            # New idea form
+            erb :'/ideas/new'
         end
 
     end
+
+    post '/ideas' do
+        # Receive the new idea data then create the new idea & persist it to the database
+
+        
+
+    end
+
+
+
+
+
+    get '/ideas/show' do
+
+
+        erb :'/ideas/show'
+    end
+
+
+
+    # get '/ideas/all' do
+
+    #     @ideas = Idea.all
+    #     erb :'/ideas/show'
+
+    # end
+
+
+
+    # get 'ideas/:id' do
+    #     @idea = Idea.all
+    #     erb : '/ideas'
+
+    # end
+
+
 
     get '/ideas/:id/edit' do
         # NOTE Substitute any number for :id when checking this block-method in the browser
