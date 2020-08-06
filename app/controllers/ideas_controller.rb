@@ -37,7 +37,7 @@ class IdeasController < ApplicationController
             redirect '/login'
         else
 
-            @user = current_user
+            # @user = current_user
 
             # New idea form
             erb :'/ideas/new'
