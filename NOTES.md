@@ -121,12 +121,22 @@ NOTE 14:30 & 21:00 Adds a menu/nav bar        <= to the layout page
     NOTE Use "DOUBLE QUOTATION MARKS" when #{INTERPOLATING}
     - user logged in => user show page
     - user NOT logged in => welcome page
+_______________________________________________________________________
 
-NOTE
+STEP 10: READ user ideas
 
-17:30
+NOTE Howard video link: sinatra journal app part 4
+    https://www.youtube.com/watch?v=PXmnoCIcH7w&feature=youtu.be
 
+22:00
 
+NOTE 24:00 Check if Controllers are functioning with a get message (call it in the browser)
+
+30:00 IdeasController 4 Tasks 
+    - get ideas/new to render a form to create a new idea
+    - post ideas to take in the new idea data then create a new idea & persist it to the database
+    - get show to show a single idea entry
+    - get index to show list of all ideas
 
 
 
