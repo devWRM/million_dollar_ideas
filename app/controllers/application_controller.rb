@@ -11,8 +11,9 @@ class ApplicationController < Sinatra::Base
     # Testing
     get '/' do
         # session[:hey] = "Say what?"
-        @world = "Wonderful World!"
-        "Welcome to the Homepage of MILLION DOLLAR IDEAS"
+        # @world = "Wonderful World!"
+        # "Welcome to the Homepage of MILLION DOLLAR IDEAS"
+        erb :'welcome'
     end
 
     # Testing
