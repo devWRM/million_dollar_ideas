@@ -22,7 +22,12 @@ class IdeasController < ApplicationController
                     redirect "/login"
                 end
 
-        "You're currently logged in as " + session[:email]
+        # "You've reached the IDEAS page."
+        ##### Why did the below stop working:
+        # "You're currently logged in as " + session[:email]
+        # "You're currently logged in as #{session[:email]}"
+        "Welcome to IDEAS, user #{User.find_by(email: session[:email]).name}!"
+        # User.find_by(email: session[:email]).name
     end
 
     get '/ideas/new' do
