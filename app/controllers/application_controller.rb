@@ -26,7 +26,7 @@ class ApplicationController < Sinatra::Base
 
         def logged_in?
             # ORIGINAL:     !!session[:email] && session[:email] != ""
-
+            
             !!current_user
 
             # NOTE Why do I have to use both
