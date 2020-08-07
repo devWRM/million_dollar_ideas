@@ -173,11 +173,23 @@ STEP 11:    READ all of a user's ideas
 NOTE Howard video link: sinatra journal app part 5
     https://www.youtube.com/watch?v=3-LyguyWNDQ&feature=youtu.be
 
+NOTE 17:00 Populate the edit idea form with previous data 2 different ways
+    - ** Use value in the appropriate input tag:
+        value="<%= @idea.title %>"
+    - placeholder in the appropriate input tag:
+        placeholder="<%= @idea.title %>"
+    
+NOTE 23:20 Why config.ru has: use Rack::MethodOverride
+    An erb page usually has a GET or POST method
+    The override allows a different HTTP verb for method
 
 
 
 
 
+I'm pretty lazy and sometimes need a kick in the backside to get going.
+
+A loud voiced person will sneak up behind you and yell insults at you until you get your butt in gear.
 
 
 
