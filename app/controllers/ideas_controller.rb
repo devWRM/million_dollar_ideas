@@ -62,37 +62,38 @@ class IdeasController < ApplicationController
             redirect '/ideas/new'
         end
 
-
-
     end
 
+    get '/ideas/:id' do
+        # Dynamic route because it changes to find a specific idea
 
 
-
-
-    get '/ideas/show' do
-        # Dynamic route because it uses iteration to find a specific idea
-
-
+        @idea = Idea.find(params[:id])
         erb :'/ideas/show'
+
     end
 
+    # get '/ideas/show' do
+    #     erb :'/ideas/show'
+    # end
 
+
+    get '/all' do
+        
+    end
 
     # get '/ideas/all' do
-
     #     @ideas = Idea.all
     #     erb :'/ideas/show'
-
     # end
 
 
 
-    # get 'ideas/:id' do
-    #     @idea = Idea.all
-    #     erb : '/ideas'
+    
 
-    # end
+
+
+    
 
 
 
