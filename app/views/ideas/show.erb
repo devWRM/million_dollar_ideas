@@ -1,8 +1,8 @@
-<h1>Show a single idea</h1>
-<h3>Include a button to an edit page for this idea</h3>
 
-<h4>TITLE</h4>
-<p><%= @idea.title %></p>
+<h3><a href="/ideas/<%= @idea.id %>/edit">EDIT: <%= @idea.title %></a></h3>
+
+
+<h1><%= @idea.title %></h1>
 <h4>CATEGORY</h4>
 <p><%= @idea.category %></p>
 <h4>INSPIRATION</h4>
