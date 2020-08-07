@@ -57,7 +57,7 @@ class IdeasController < ApplicationController
         end
 
         if params[:title] != "" && params[:category] != "" && params[:inspiration] != "" && params[:summary] != ""
-            @idea = Idea.create(title: params[:title], category: params[:category], inspiration: params[:inspiration], summary: params[:inspiration], user_id: current_user.id)
+            @idea = Idea.create(title: params[:title], category: params[:category], inspiration: params[:inspiration], summary: params[:summary], user_id: current_user.id)
             redirect "/ideas/#{@idea.id}"
         else
             redirect '/ideas/new'
@@ -92,7 +92,7 @@ class IdeasController < ApplicationController
 
     end
 
-    patch '/ideas/19' do
+    patch '/ideas/:id' do
 
         @idea = Idea.update(title: params[:title], category: params[:category], inspiration: params[:inspiration], summary: params[:inspiration], user_id: current_user.id)
 
