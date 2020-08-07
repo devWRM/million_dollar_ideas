@@ -147,6 +147,7 @@ NOTE    * ideas/new has missing columns *
 
         * ideas/new mandatory columns *
     t.string "title"
+    t.string "category"
     t.string "inspiration"
     t.string "summary"
     t.datetime "date_created"
@@ -160,7 +161,17 @@ NOTE    * ideas/new has missing columns *
     t.integer "remaining_budgeted_dollars"  <= Not directly
     t.boolean "within_budget"               <= Not directly
 
+NOTE 53:10 Shotgun: 200 => successful action    404 => failed action
 
+
+
+
+
+
+
+
+
+37:00 STOPPED HERE  <=      <=      <=      <= 
 
 
 
