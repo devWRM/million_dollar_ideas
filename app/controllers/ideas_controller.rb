@@ -33,22 +33,36 @@ class IdeasController < ApplicationController
     get '/ideas/new' do
         # Render a form to create a new idea
 
-        if !logged_in?     # session[:email] == ""     # !session[:email]    # !logged_in?
-            redirect '/login'
-        else
+        erb :'/ideas/new'
 
-            # @user = current_user
+        # if !logged_in?     # session[:email] == ""     # !session[:email]    # !logged_in?
+        #     redirect '/login'
+        # else
 
-            # New idea form
-            erb :'/ideas/new'
-        end
+        #     # @user = current_user
+
+        #     # New idea form
+        #     erb :'/ideas/new'
+        # end
 
     end
 
-    post '/ideas' do
-        # Receive the new idea data then create the new idea & persist it to the database
-
+    post '/ideas/ideas' do
+        # Receive the new idea data then: create & persist idea to the database
+        # If it has data & user logged in
         
+        if !logged_in?
+            redirect '/'
+        end
+
+        if params[:title] != "" && params[:category] != "" && params[:inspiration] != "" && params[:summary] != ""
+            @idea = Idea.create(title: params[:title], category: params[:category], inspiration: params[:inspiration], summary: params[:inspiration], user_id: current_user.id)
+            redirect "/ideas/#{@idea.id}"
+        else
+            redirect '/ideas/new'
+        end
+
+
 
     end
 
@@ -57,6 +71,7 @@ class IdeasController < ApplicationController
 
 
     get '/ideas/show' do
+        # Dynamic route because it uses iteration to find a specific idea
 
 
         erb :'/ideas/show'
