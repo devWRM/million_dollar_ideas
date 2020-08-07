@@ -138,7 +138,27 @@ NOTE 24:00 Check if Controllers are functioning with a get message (call it in t
     - get show to show a single idea entry
     - get index to show list of all ideas
 
+NOTE    * ideas/new has missing columns *
+    t.datetime "date_created"
+ => t.datetime "deadline_date"                  <= countdown
+    t.integer "remaining_budgeted_dollars"
+    t.boolean "within_budget"
+    t.integer "user_id"
 
+        * ideas/new mandatory columns *
+    t.string "title"
+    t.string "inspiration"
+    t.string "summary"
+    t.datetime "date_created"
+
+        * ideas/new calculated columns *
+    t.integer "remaining_budgeted_dollars"
+    t.boolean "within_budget"
+
+        * ideas/new users can't set nor edit *
+    t.datetime "date_created"
+    t.integer "remaining_budgeted_dollars"  <= Not directly
+    t.boolean "within_budget"               <= Not directly
 
 
 
