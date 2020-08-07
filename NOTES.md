@@ -183,13 +183,16 @@ NOTE 23:20 Why config.ru has: use Rack::MethodOverride
     An erb page usually has a GET or POST method
     The override allows a different HTTP verb for method
 
+NOTE 28:00 Resize the edit form text boxes
+    WORKING
+    <textarea name="summary" style="width:auto; height:auto;"><%= @idea.summary %></textarea>
 
 
 
 
-I'm pretty lazy and sometimes need a kick in the backside to get going.
 
-A loud voiced person will sneak up behind you and yell insults at you until you get your butt in gear.
+
+
 
 
 
