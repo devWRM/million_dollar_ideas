@@ -1,8 +1,11 @@
 <h1>Create a new IDEA, <%= current_user.name %>!</h1>
 
+<h3>Mandatory fields: Title, Category, Inspiration, and Summary</h3>
 <form class="" method="POST" action="ideas">
     <label for="title">Title</label>
     <input type="text" name="title" value="" />
+    <p><label for="category">Category</label>
+    <input type="text" name="category" value="" /></p>
     <label for="inspiration">Inspiration</label>
     <input type="text" name="inspiration" value="" />
     <p><label for="summary">Summary</label>
@@ -17,8 +20,6 @@
     <input type="integer" name="total_budgeted_dollars" value="" /></p>
     <p><label for="total_spent_dollars">Total Spent Dollars</label>
     <input type="integer" name="total_spent_dollars" value="" /></p>
-    <p><label for="category">Category</label>
-    <input type="text" name="category" value="" /></p>
-    
+        
     <input type="submit" name="" value="Create" />
-</form
+</form>
