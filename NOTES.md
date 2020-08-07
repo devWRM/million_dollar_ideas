@@ -123,7 +123,7 @@ NOTE 14:30 & 21:00 Adds a menu/nav bar        <= to the layout page
     - user NOT logged in => welcome page
 _______________________________________________________________________
 
-STEP 10: READ user ideas
+STEP 10: CREATE & READ a single idea
 
 NOTE Howard video link: sinatra journal app part 4
     https://www.youtube.com/watch?v=PXmnoCIcH7w&feature=youtu.be
@@ -163,6 +163,15 @@ NOTE    * ideas/new has missing columns *
 
 NOTE 53:10 Shotgun: 200 => successful action    404 => failed action
 
+NOTE 55:45 Dynamic Route in IdeasController
+
+_______________________________________________________________________
+
+STEP 11:    READ all of a user's ideas
+            UPDATE (edit) a user's idea
+
+NOTE Howard video link: sinatra journal app part 5
+    https://www.youtube.com/watch?v=3-LyguyWNDQ&feature=youtu.be
 
 
 
@@ -171,7 +180,8 @@ NOTE 53:10 Shotgun: 200 => successful action    404 => failed action
 
 
 
-37:00 STOPPED HERE  <=      <=      <=      <= 
+
+55:00 STOPPED HERE  <=      <=      <=      <= 
 
 
 
