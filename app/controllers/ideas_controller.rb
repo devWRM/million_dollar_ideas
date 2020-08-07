@@ -47,7 +47,8 @@ class IdeasController < ApplicationController
 
     end
 
-    post '/ideas/ideas' do
+    # post '/ideas/ideas' do
+    post '/ideas' do
         # Receive the new idea data then: create & persist idea to the database
         # If it has data & user logged in
         
@@ -77,6 +78,39 @@ class IdeasController < ApplicationController
     #     erb :'/ideas/show'
     # end
 
+    get '/ideas/:id/edit' do
+        # An edit idea form will show in the browser
+        # Populate the edit idea form with previous data by retrieving it from the database
+        @idea = Idea.find(params[:id])
+
+        if !logged_in?
+            redirect '/login'
+        else
+            erb :'/ideas/edit'
+            # # # /ideas/18/edit
+        end
+
+    end
+
+    patch '/ideas/19' do
+
+        @idea = Idea.update(title: params[:title], category: params[:category], inspiration: params[:inspiration], summary: params[:inspiration], user_id: current_user.id)
+
+
+
+        
+        
+        redirect "/ideas/#{@idea.id}"
+      end
+
+    # This is why config.ru has: use Rack::MethodOverride
+
+
+
+
+
+
+
 
     get '/all' do
         
@@ -97,16 +131,7 @@ class IdeasController < ApplicationController
 
 
 
-    get '/ideas/:id/edit' do
-        # NOTE Substitute any number for :id when checking this block-method in the browser
-
-        if !logged_in?
-            redirect '/login'
-        else
-            "Build an edit idea form"
-        end
-
-    end
+    
 
 
 
