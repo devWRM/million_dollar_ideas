@@ -99,6 +99,9 @@ class SessionsController < ApplicationController
 
         # Using @user so the erb file has access to it
         @user = User.find_by(id: params[:id])
+                # if @user == nil
+                #     redirect '/'
+                # end
 
         erb :'/users/show'
 
