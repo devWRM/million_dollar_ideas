@@ -28,6 +28,9 @@ class SessionsController < ApplicationController
 
         # Find/match user with email key and value params[:email]
         @user = User.find_by(email: params[:email])
+        if @user == nil
+            redirect '/'
+        end
 
         # Authenticate user with email & password
         if @user.authenticate(params[:password])
@@ -43,10 +46,12 @@ class SessionsController < ApplicationController
             # message to user: Incorrect input
             # will break unless redirect to login page
 
-
+            
+            redirect '/'
+            # erb :'/sessions/login.html'
         end
 
-        redirect '/ideas'
+        
     end
     # END OF:   post '/sessions'        <=> post '/login'
 
