@@ -86,18 +86,29 @@ class IdeasController < ApplicationController
 
     get '/ideas/:id/edit' do
     
-        # An edit idea form will show in the browser
+        # An edit idea FORM will show in the browser
         # Populate the edit idea form with previous data by retrieving it from the database
         # set_idea replaces:    @idea = Idea.find(params[:id])
         set_idea
 
-
-        if !logged_in?
-            redirect '/login'
+        if logged_in?
+            if @idea.user_id == current_user.id
+                erb :'/ideas/edit'
+            else
+                # redirect "/users/:id"
+                redirect "/users/#{current_user.id}"
+            end
         else
-            erb :'/ideas/edit'
-            # # # /ideas/18/edit
+            redirect '/'
         end
+
+
+        ## Original if statement
+        # if !logged_in?
+        #     redirect '/login'
+        # else
+        #     erb :'/ideas/edit'
+        # end
 
     end
 
