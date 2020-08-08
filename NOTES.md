@@ -106,7 +106,9 @@ NOTE 25:30 Create new user and persist to the database
 
 NOTE 35:00 redirect (url address)   -vs-    erb (file path) render
     - Render (erb) from get block-methods only: erb uses @instance_variables
+        ** Users NEVER SEE the method call for the file BUT they see what's in the file
     - Redirect from post, patch, delete
+        ** redirect is a BROWSER address call
         * redirect sometimes uses interpolation
 _______________________________________________________________________
 
@@ -168,8 +170,8 @@ NOTE 55:45 Dynamic Route in IdeasController
 
 _______________________________________________________________________
 
-STEP 11:    READ all of a user's ideas
-            UPDATE (edit) a user's idea
+STEP 11:    UPDATE (edit) a user's idea
+            
 
 NOTE Howard video link: sinatra journal app part 5
     https://www.youtube.com/watch?v=3-LyguyWNDQ&feature=youtu.be
@@ -191,15 +193,16 @@ NOTE 28:00 Resize the edit form text boxes
 
 NOTE The session has information about the user, NOT the ideas
 NOTE The params has information on the most recent/last passed in data
+_______________________________________________________________________
+
+STEP 12:    READ all of a user's ideas
 
 
 
 
 
 
-
-
-48:30 STOPPED HERE  <=      <=      <=      <= 
+49:0 STOPPED HERE  <=      <=      <=      <= 
 
 
 
