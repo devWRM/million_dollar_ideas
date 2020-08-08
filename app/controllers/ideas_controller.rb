@@ -50,14 +50,17 @@ class IdeasController < ApplicationController
     # post '/ideas/ideas' do
     post '/ideas' do
         # Receive the new idea data then: create & persist idea to the database
-        # If it has data & user logged in
         
+        # If user logged in and...
         if !logged_in?
             redirect '/'
         end
 
+        # ...if params has data 
         if params[:title] != "" && params[:category] != "" && params[:inspiration] != "" && params[:summary] != ""
-            @idea = Idea.create(title: params[:title], category: params[:category], inspiration: params[:inspiration], summary: params[:summary], user_id: current_user.id)
+            # @idea = Idea.create(title: params[:title], category: params[:category], inspiration: params[:inspiration], summary: params[:summary], user_id: current_user.id)
+            @idea = Idea.create(params)
+            
             redirect "/ideas/#{@idea.id}"
         else
             redirect '/ideas/new'
@@ -67,9 +70,12 @@ class IdeasController < ApplicationController
 
     get '/ideas/:id' do
         # Dynamic route because it changes to find a specific idea
+    # binding.pry
 
-
+        # set_idea replaces: @idea = Idea.find(params[:id])
+        # set_idea
         @idea = Idea.find(params[:id])
+
         erb :'/ideas/show'
 
     end
@@ -79,9 +85,12 @@ class IdeasController < ApplicationController
     # end
 
     get '/ideas/:id/edit' do
+    
         # An edit idea form will show in the browser
         # Populate the edit idea form with previous data by retrieving it from the database
-        @idea = Idea.find(params[:id])
+        # set_idea replaces:    @idea = Idea.find(params[:id])
+        set_idea
+
 
         if !logged_in?
             redirect '/login'
@@ -93,14 +102,27 @@ class IdeasController < ApplicationController
     end
 
     patch '/ideas/:id' do
+       
+        # Find the idea:    Idea.find(params[:id])
+        # set_idea replaces:    @idea = Idea.find(params[:id])
+        set_idea
 
-        @idea = Idea.update(title: params[:title], category: params[:category], inspiration: params[:inspiration], summary: params[:inspiration], user_id: current_user.id)
+        # Update the selected idea
+        # CANNOT !!! mass assign, patch method in hash unknown to ActiveRecord:  @idea.update(params)
+        @idea.update({title: params[:title], category: params[:category], inspiration: params[:inspiration], summary: params[:summary], timeline_plan: params[:timeline_plan], action_steps_accomplished: params[:action_steps_accomplished], resources: params[:resources], total_budgeted_dollars: params[:total_budgeted_dollars], total_spent_dollars: params[:total_spent_dollars]})
+              
+         
+
+        # Redirect to the show page to see the updated idea
+        redirect "/ideas/#{@idea[:id]}"
+
+        # @idea = Idea.update(title: params[:title], category: params[:category], inspiration: params[:inspiration], summary: params[:inspiration], user_id: current_user.id)
 
 
 
         
         
-        redirect "/ideas/#{@idea.id}"
+        # redirect "/ideas/#{@idea.id}"
       end
 
     # This is why config.ru has: use Rack::MethodOverride
@@ -136,9 +158,11 @@ class IdeasController < ApplicationController
 
 
 
+    private
 
-
-
+    def set_idea
+        @idea = Idea.find(params[:id])
+    end
 
 
 end
