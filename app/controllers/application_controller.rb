@@ -16,6 +16,11 @@ class ApplicationController < Sinatra::Base
 
         # erb :'welcome'
 
+                    # if params == {}
+                    #     erb :'welcome'
+                    # end
+    
+
         if logged_in?
             ##### MUST USE "double quotation marks" when #{interpolating} !!!
             # redirect "/users/#{session[:user_id]}"
@@ -64,6 +69,7 @@ class ApplicationController < Sinatra::Base
 
 
         def current_user
+            # FIND the current user by looking for the session user_id that I SET in SessionsController AFTER authenticating the login, I ACTUALLY logged the user by assigning a new key/value pair:    session[:user_id] = @user.id
             # Use find_by instead of find to get a nil return instead of an error
             # User.find(session[:user_id])
             @current_user ||= User.find_by(id: session[:user_id])
