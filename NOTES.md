@@ -105,8 +105,9 @@ NOTE 13:00 Explains RESTful convention
 NOTE 25:30 Create new user and persist to the database
 
 NOTE 35:00 redirect (url address)   -vs-    erb (file path) render
-    Render (erb) from get block-methods only: erb uses @instance_variables
-    Redirect from post, patch, delete
+    - Render (erb) from get block-methods only: erb uses @instance_variables
+    - Redirect from post, patch, delete
+        * redirect sometimes uses interpolation
 _______________________________________________________________________
 
 STEP 9: Welcome page to tie in Signup & Login
@@ -181,12 +182,15 @@ NOTE 17:00 Populate the edit idea form with previous data 2 different ways
     
 NOTE 23:20 Why config.ru has: use Rack::MethodOverride
     An erb page usually has a GET or POST method
-    The override allows a different HTTP verb for method
+    The override allows a different HTTP verb PATCH for method
+        NOTE Need PATCH to change Existing data
 
 NOTE 28:00 Resize the edit form text boxes
     WORKING
     <textarea name="summary" style="width:auto; height:auto;"><%= @idea.summary %></textarea>
 
+NOTE The session has information about the user, NOT the ideas
+NOTE The params has information on the most recent/last passed in data
 
 
 
@@ -195,8 +199,7 @@ NOTE 28:00 Resize the edit form text boxes
 
 
 
-
-55:00 STOPPED HERE  <=      <=      <=      <= 
+48:30 STOPPED HERE  <=      <=      <=      <= 
 
 
 
