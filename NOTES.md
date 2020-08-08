@@ -193,16 +193,23 @@ NOTE 28:00 Resize the edit form text boxes
 
 NOTE The session has information about the user, NOT the ideas
 NOTE The params has information on the most recent/last passed in data
+NOTE You raise params.inpect to see the information that has been passed in
 _______________________________________________________________________
 
 STEP 12:    READ all of a user's ideas
+            Limit users' ability to only be able to edit own ideas
+            Code out ability to create empty content for ideas
+
+!NOTE!  Git message for users/show.erb: "Changed to current_user.name because  @user.name no longer held user information !NOTE! Trying to access user info from the IdeasController which does not have user information (except through current_user) because refactored if statement to consider both logged_in? AND curent_user"
+        - Added if statement to the get '/ideas/:id/edit' route to consider both logged in AND current_user
 
 
 
 
 
-
-49:0 STOPPED HERE  <=      <=      <=      <= 
+FROM File: users/show.erb
+<h1>You're at <%= @user.name %>'s user show page!!</h1>
+52:00 STOPPED HERE  <=      <=      <=      <= 
 
 
 
