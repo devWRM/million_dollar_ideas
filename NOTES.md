@@ -196,8 +196,7 @@ NOTE The params has information on the most recent/last passed in data
 NOTE You raise params.inpect to see the information that has been passed in
 _______________________________________________________________________
 
-STEP 12:    READ all of a user's ideas
-            49:00 Limit users' ability to only be able to edit own ideas
+STEP 12:    49:00 Limit users' ability to only be able to edit own ideas          
             Code out ability to create empty content for ideas
 
 NOTE Howard video link: sinatra journal app part 5
@@ -215,6 +214,26 @@ NOTE 53:15 To ensure a user can ONLY edit their OWN ideas:
 
 !NOTE!  Git message for users/show.erb: "Changed to current_user.name because  @user.name no longer held user information !NOTE! Trying to access user info from the IdeasController which does not have user information (except through current_user) because refactored if statement to consider both logged_in? AND curent_user"
         - Added if statement to the get '/ideas/:id/edit' route to consider both logged in AND current_user
+_______________________________________________________________________
+
+STEP 13:    READ (list) all of a user's ideas as title links (to each individual idea)
+
+NOTE: Howard video link: sinatra journal app part 6
+    https://www.youtube.com/watch?v=uW0LVCvkIYM&feature=youtu.be
+
+NOTE    Local variables inside of a block are scoped to that block
+        Local variables inside of a method are scoped to that method
+
+
+
+
+
+
+
+
+
+52:00 STOPPED HERE  <=      <=      <=      <= 
+
 
 
 
@@ -222,7 +241,6 @@ NOTE 53:15 To ensure a user can ONLY edit their OWN ideas:
 
 FROM File: users/show.erb
 <h1>You're at <%= @user.name %>'s user show page!!</h1>
-52:00 STOPPED HERE  <=      <=      <=      <= 
 
 
 
