@@ -1,1 +1,16 @@
 <h1>Show a list of all of this user's ideas as links to the single idea</h1>
+
+    <% list_number = 1 %>
+<% @ideas.each do |idea| %>
+  
+    <% if idea.user_id == current_user.id %>
+        
+    <%= list_number %>. <a href="/ideas/#{idea.id}"><%= idea.title %></a></br>
+   
+    <% list_number += 1 %>
+
+    <% end %>
+
+<% end %>
+
+
