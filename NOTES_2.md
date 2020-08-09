@@ -1,5 +1,50 @@
 
 
+IDEAS
+
+title: "Rain Shade Cap"
+
+title: "Moti-Vator"
+
+title: "Tattoo Cookies",
+inspiration: "I love tattoos and I love cookies",
+summary: "Bake and sale cookies that resemble tattoos",
+category: "Food"
+
+title: "poP adoS",
+inspiration: "Cross Word Puzzles",
+summary:
+"Write story endings in cryptic text that readers have to decipher to get the stories final conclusion. It can be written any number of ways including in cross word puzzle style or backwards like poP adoS (Soda Pop)",
+timeline_plan:
+"5 days: introduce to USA, 6 days: introduce to the world, 10 days: decide what I'll do with my millions",
+deadline_date: nil,
+action_steps_accomplished: "None",
+resources: "The sweat of my brow",
+category: "Entertainment"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ****************************************************************
 FILE: views/ideas/edit.erb
