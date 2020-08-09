@@ -2,6 +2,17 @@
 
 IDEAS
 
+title: "Face Glue"
+category: "Cosmetics"
+inspiration: "Want a facelift but afraid of surgery"
+summary: "This product should be worn on the face 24/7. Slather it on and it freezes your face in place, preventing facial expressions which would cause wrinkles over time."
+timeline_plan: "A month"
+action_steps_accomplished:
+"1. Mixed a batch of Face Glue\r\n2. Searching for volunteers",
+resources: "My parents",
+total_budgeted_dollars: -250,
+total_spent_dollars: 1000,
+
 title: "Rain Shade Cap"
 
 title: "Moti-Vator"
@@ -29,7 +40,8 @@ category: "Entertainment"
 
 
 
-
+name: "Elia",
+email: "eel@email.com"
 
 
 
