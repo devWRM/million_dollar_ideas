@@ -197,8 +197,20 @@ NOTE You raise params.inpect to see the information that has been passed in
 _______________________________________________________________________
 
 STEP 12:    READ all of a user's ideas
-            Limit users' ability to only be able to edit own ideas
+            49:00 Limit users' ability to only be able to edit own ideas
             Code out ability to create empty content for ideas
+
+NOTE Howard video link: sinatra journal app part 5
+    https://www.youtube.com/watch?v=3-LyguyWNDQ&feature=youtu.be
+
+NOTE 53:15 To ensure a user can ONLY edit their OWN ideas:
+    - check if user is logged in
+    - check if user is current_user
+    NOTE If user fails either one above, in IdeasController:
+        53:30 user shouldn't be able to make changes to the edit form
+            get '/ideas/:id/edit'       <= if statement in this route
+        56:00 user shouldn't be able to see the edit form
+            patch '/ideas/:id'          <= if statement in this route
 
 !NOTE!  Git message for users/show.erb: "Changed to current_user.name because  @user.name no longer held user information !NOTE! Trying to access user info from the IdeasController which does not have user information (except through current_user) because refactored if statement to consider both logged_in? AND curent_user"
         - Added if statement to the get '/ideas/:id/edit' route to consider both logged in AND current_user
