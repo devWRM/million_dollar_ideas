@@ -209,8 +209,9 @@ NOTE 53:15 To ensure a user can ONLY edit their OWN ideas:
     NOTE If user fails either one above, in IdeasController:
         53:30 user shouldn't be able to make changes to the edit form
             get '/ideas/:id/edit'       <= if statement in this route
-        56:00 user shouldn't be able to see the edit form
             patch '/ideas/:id'          <= if statement in this route
+        ??:00 user shouldn't be able to see the edit form
+            
 
 !NOTE!  Git message for users/show.erb: "Changed to current_user.name because  @user.name no longer held user information !NOTE! Trying to access user info from the IdeasController which does not have user information (except through current_user) because refactored if statement to consider both logged_in? AND curent_user"
         - Added if statement to the get '/ideas/:id/edit' route to consider both logged in AND current_user
