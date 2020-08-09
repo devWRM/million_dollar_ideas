@@ -1,6 +1,16 @@
 
 class IdeasController < ApplicationController
 
+
+    get '/index' do
+        # Load all the ideas from the database so on the erb page you can iterate for the user's ideas
+        @ideas = Idea.all
+
+        # NOTE Use pry on the erb page inside of <% erb tags %>
+            # ex.   <% binding.pry %>
+        erb :'ideas/index'
+    end
+
     get '/ideas' do
 
         # binding.pry       <= session hash exists!
