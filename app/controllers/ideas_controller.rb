@@ -52,6 +52,7 @@ class IdeasController < ApplicationController
         # Receive the new idea data then: create & persist idea to the database
         
         # If user logged in and...
+        # BETTER CODE: redirect '/' unless logged_in?
         if !logged_in?
             redirect '/'
         end
@@ -60,7 +61,11 @@ class IdeasController < ApplicationController
         if params[:title] != "" && params[:category] != "" && params[:inspiration] != "" && params[:summary] != ""
             # @idea = Idea.create(title: params[:title], category: params[:category], inspiration: params[:inspiration], summary: params[:summary], user_id: current_user.id)
             @idea = Idea.create(params)
-            
+
+            # THE FIX: Why did I need THE FIX ??
+            @idea.user_id = current_user.id
+            @idea.save
+              
             redirect "/ideas/#{@idea.id}"
         else
             redirect '/ideas/new'
@@ -88,17 +93,27 @@ class IdeasController < ApplicationController
     
         # An edit idea FORM will show in the browser
         # Populate the edit idea form with previous data by retrieving it from the database
-        # set_idea replaces:    @idea = Idea.find(params[:id])
+        # set_idea finds the idea, replaces:    @idea = Idea.find(params[:id])
         set_idea
 
+        # THE FIX TEST
+        # @idea.user_id = current_user.id
+
+# binding.pry
         if logged_in?
-            if @idea.user_id == current_user.id
+# binding.pry
+            # ORIG: if @idea.user_id == current_user.id
+            if @idea.user == current_user
+# binding.pry
+                # user confirmed (2 checks) to edit idea
                 erb :'/ideas/edit'
             else
+                # user NOT current_user so redirected to OWN show page NOT edit page of other users
                 # redirect "/users/:id"
                 redirect "/users/#{current_user.id}"
             end
         else
+            # user NOT logged in so redirected to Welcome page
             redirect '/'
         end
 
@@ -112,31 +127,37 @@ class IdeasController < ApplicationController
 
     end
 
+        # The PATCH route is why config.ru has: use Rack::MethodOverride
     patch '/ideas/:id' do
        
         # Find the idea:    Idea.find(params[:id])
-        # set_idea replaces:    @idea = Idea.find(params[:id])
+        # set_idea finds the idea, replaces:    @idea = Idea.find(params[:id])
         set_idea
 
-        # Update the selected idea
-        # CANNOT !!! mass assign, patch method in hash unknown to ActiveRecord:  @idea.update(params)
-        @idea.update({title: params[:title], category: params[:category], inspiration: params[:inspiration], summary: params[:summary], timeline_plan: params[:timeline_plan], action_steps_accomplished: params[:action_steps_accomplished], resources: params[:resources], total_budgeted_dollars: params[:total_budgeted_dollars], total_spent_dollars: params[:total_spent_dollars]})
-              
-         
+        if logged_in?
 
-        # Redirect to the show page to see the updated idea
-        redirect "/ideas/#{@idea[:id]}"
+                if @idea.user == current_user
 
-        # @idea = Idea.update(title: params[:title], category: params[:category], inspiration: params[:inspiration], summary: params[:inspiration], user_id: current_user.id)
+                    # Update the selected idea
+                    # CANNOT !!! mass assign because patch method in hash unknown to ActiveRecord:  @idea.update(params)
+                    @idea.update({title: params[:title], category: params[:category], inspiration: params[:inspiration], summary: params[:summary], timeline_plan: params[:timeline_plan], action_steps_accomplished: params[:action_steps_accomplished], resources: params[:resources], total_budgeted_dollars: params[:total_budgeted_dollars], total_spent_dollars: params[:total_spent_dollars]})
+                        
+                    # Redirect to the show page to see the updated idea
+                    # ORIG: redirect "/ideas/#{@idea[:id]}"
+                    redirect "/ideas/#{@idea.id}"
+                else
+                    redirect "/users/#{current_user.id}"
+                end
+
+        else
+            redirect '/'
+        end
 
 
 
-        
-        
-        # redirect "/ideas/#{@idea.id}"
+
       end
 
-    # This is why config.ru has: use Rack::MethodOverride
 
 
 
