@@ -3,6 +3,11 @@ class IdeasController < ApplicationController
 
 
     get '/index' do
+
+        if !logged_in?
+            redirect '/'
+        end
+
         # Load all the ideas from the database so on the erb page you can iterate for the user's ideas
         @ideas = Idea.all
 
@@ -42,6 +47,10 @@ class IdeasController < ApplicationController
 
     get '/ideas/new' do
         # Render a form to create a new idea
+
+        if !logged_in?
+            redirect '/'
+        end
 
         erb :'/ideas/new'
 
