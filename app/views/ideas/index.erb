@@ -5,7 +5,7 @@
   
     <% if idea.user_id == current_user.id %>
         
-    <%= list_number %>. <a href="/ideas/#{idea.id}"><%= idea.title %></a></br>
+    <%= list_number %>. <%= idea.date_created %> <a href="/ideas/<%= idea.id %>"><%= idea.title %></a></br>
    
     <% list_number += 1 %>
 
