@@ -228,8 +228,9 @@ NOTE 31:45 DELETE an idea
 NOTE 35:00 DELETE - vs - DESTROY
         Destroy runs any callbacks on the model while delete does not
 
-MY DESTROY IS NOT WORKING!
+MY DESTROY IS WORKING!
     https://github.com/morgvanny/sinatra-mvc-intro/blob/main/app/controllers/books_controller.rb
+    https://github.com/morgvanny/sinatra-mvc-intro/blob/main/app/views/books/show.erb
 
     (Howard's solution did NOT work) From ideas/show.erb:
 
