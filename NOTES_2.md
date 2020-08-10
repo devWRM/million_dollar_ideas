@@ -2,41 +2,6 @@
 
 IDEAS
 
-title: "Face Glue"
-category: "Cosmetics"
-inspiration: "Want a facelift but afraid of surgery"
-summary: "This product should be worn on the face 24/7. Slather it on and it freezes your face in place, preventing facial expressions which would cause wrinkles over time."
-timeline_plan: "A month"
-action_steps_accomplished:
-"1. Mixed a batch of Face Glue\r\n2. Searching for volunteers",
-resources: "My parents",
-total_budgeted_dollars: -250,
-total_spent_dollars: 1000,
-
-title: "Rain Shade Cap"
-
-title: "Moti-Vator"
-
-title: "Tattoo Cookies",
-inspiration: "I love tattoos and I love cookies",
-summary: "Bake and sale cookies that resemble tattoos",
-category: "Food"
-
-title: "poP adoS",
-inspiration: "Cross Word Puzzles",
-summary:
-"Write story endings in cryptic text that readers have to decipher to get the stories final conclusion. It can be written any number of ways including in cross word puzzle style or backwards like poP adoS (Soda Pop)",
-timeline_plan:
-"5 days: introduce to USA, 6 days: introduce to the world, 10 days: decide what I'll do with my millions",
-deadline_date: nil,
-action_steps_accomplished: "None",
-resources: "The sweat of my brow",
-category: "Entertainment"
-
-
-
-
-
 
 
 
