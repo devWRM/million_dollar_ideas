@@ -224,6 +224,32 @@ NOTE: Howard video link: sinatra journal app part 6
 NOTE    Local variables inside of a block are scoped to that block
         Local variables inside of a method are scoped to that method
 
+NOTE 31:45 DELETE an idea
+NOTE 35:00 DELETE - vs - DESTROY
+        Destroy runs any callbacks on the model while delete does not
+
+MY DESTROY IS NOT WORKING!
+    https://github.com/morgvanny/sinatra-mvc-intro/blob/main/app/controllers/books_controller.rb
+
+    (Howard's solution did NOT work) From ideas/show.erb:
+
+        <form class="" action="/ideas/<%= @idea.id %>" method="post">
+            <!-- NOTE: Turns this form submission into a DELETE request --> 
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" name="" value="Delete: <%= @idea.title %>"
+        </form>       
+    
+    (Morgan's solution DID work) From ideas/show.erb:
+
+        <h3>
+        <form action=/ideas/<%= @idea.id %> method=POST>
+            <input type=hidden name=_method value=delete>
+            <input type=submit value="Delete: <%= @idea.title %>">
+        </form>       
+        </h3
+
+
+
 
 
 
