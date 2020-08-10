@@ -26,7 +26,7 @@ class IdeasController < ApplicationController
         # session[:email] tests if the email key exists or not WHILE... 
         # logged_in? tests for an empty string value
 
-        # logged_in updated to consider both if email key exists && if the string value is not empty
+        # logged_in refactored to consider both if email key exists && if the string value is not empty
                 if !logged_in?
                     "Login please"
                     redirect "/login"
@@ -138,14 +138,12 @@ class IdeasController < ApplicationController
     end
 
         # The PATCH route is why config.ru has: use Rack::MethodOverride
-    patch '/ideas/:id' do
-       
+    patch '/ideas/:id' do  
         # Find the idea:    Idea.find(params[:id])
         # set_idea finds the idea, replaces:    @idea = Idea.find(params[:id])
         set_idea
 
         if logged_in?
-
                 if @idea.user == current_user
 
                     # Update the selected idea
@@ -158,44 +156,39 @@ class IdeasController < ApplicationController
                 else
                     redirect "/users/#{current_user.id}"
                 end
-
         else
             redirect '/'
         end
 
-
-
-
-      end
-
-
-
-
-
-
-
-
-
-    get '/all' do
-        
     end
+
+    ##### BOTH DELETE ROUTES BELOW WORK #####
+
+    # delete '/ideas/:id' do
+    #     @idea = Idea.find(params[:id])
+    #     @idea.destroy
+    #     redirect '/ideas'
+    # end
+
+    delete '/ideas/:id' do
+        set_idea
+        if @idea.user == current_user
+            @idea.destroy
+            redirect '/ideas'
+        else
+            redirect '/ideas'
+        end
+    end
+    
+########################################################
+
+    # get '/all' do   
+    # end
 
     # get '/ideas/all' do
     #     @ideas = Idea.all
     #     erb :'/ideas/show'
     # end
-
-
-
-    
-
-
-
-    
-
-
-
-    
 
 
 
