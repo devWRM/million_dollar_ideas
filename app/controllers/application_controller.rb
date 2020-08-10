@@ -78,6 +78,11 @@ class ApplicationController < Sinatra::Base
         end
 
 
+        def authorized_to_edit?(idea)
+            idea.user == current_user
+        end
+
+
     end
 
 
