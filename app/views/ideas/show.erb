@@ -2,10 +2,19 @@
 
 <% if current_user == @idea.user%>
 
-<h3><a href="/ideas/<%= @idea.id %>/edit">EDIT: <%= @idea.title %></a></h3>
-<h3><a href="">DELETE: This Title</a></h3>
+    <h3><a href="/ideas/<%= @idea.id %>/edit">EDIT: <%= @idea.title %></a></h3>
+
+    <h3>
+        <form action=/ideas/<%= @idea.id %> method=POST>
+            <input type=hidden name=_method value=delete>
+            <input type=submit value="Delete: <%= @idea.title %>">
+        </form>       
+    </h3  
 
 <% end %>
+
+
+
 
 <h1><%= @idea.title %></h1>
 <h4>CATEGORY</h4>
