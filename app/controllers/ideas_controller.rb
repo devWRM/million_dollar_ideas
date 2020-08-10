@@ -174,9 +174,9 @@ class IdeasController < ApplicationController
         set_idea
         if @idea.user == current_user
             @idea.destroy
-            redirect '/ideas'
+            redirect "/index"
         else
-            redirect '/ideas'
+            redirect "/index"
         end
     end
     
