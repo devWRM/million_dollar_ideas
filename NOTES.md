@@ -237,7 +237,7 @@ MY DESTROY IS WORKING!
         <form class="" action="/ideas/<%= @idea.id %>" method="post">
             <!-- NOTE: Turns this form submission into a DELETE request --> 
             <input type="hidden" name="_method" value="DELETE">
-            <input type="submit" name="" value="Delete: <%= @idea.title %>"
+            <input type="submit" name="" value="Delete: <%= @idea.title %>">
         </form>       
     
     (Morgan's solution DID work) From ideas/show.erb:
