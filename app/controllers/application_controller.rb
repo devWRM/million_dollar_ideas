@@ -8,7 +8,6 @@ class ApplicationController < Sinatra::Base
         set :session_secret, "mycollection"
     end
 
-    # Testing
     get '/' do
         # session[:hey] = "Say what?"
         # @world = "Wonderful World!"
@@ -29,12 +28,6 @@ class ApplicationController < Sinatra::Base
             erb :'welcome'
         end
 
-    end
-
-    # Testing
-    get '/task' do
-        # session[:hey]
-        @world
     end
 
 
@@ -86,18 +79,6 @@ class ApplicationController < Sinatra::Base
     end
 
 
-
-
-
-
-    
-
-
-
-
-
-
-
-    
+  
 
 end
