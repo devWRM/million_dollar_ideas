@@ -2,7 +2,7 @@
 class IdeasController < ApplicationController
 
 
-    get '/index' do
+    get '/ideas' do
 
         if !logged_in?
             redirect '/'
@@ -16,7 +16,7 @@ class IdeasController < ApplicationController
         erb :'ideas/index'
     end
 
-    get '/ideas' do
+    get '/test' do
 
         # binding.pry       <= session hash exists!
         # raise session[:email].inspect
@@ -76,14 +76,23 @@ class IdeasController < ApplicationController
             redirect '/'
         end
 
+
+
+        
+
         # ...if params has data 
         if params[:title] != "" && params[:category] != "" && params[:inspiration] != "" && params[:summary] != ""
             # @idea = Idea.create(title: params[:title], category: params[:category], inspiration: params[:inspiration], summary: params[:summary], user_id: current_user.id)
-            @idea = Idea.create(params)
+            
+
+            @idea = current_user.ideas.create(params)
+
+            
+            # BROKEN =>     @idea = Idea.create(params, user: current_user)
 
             # THE FIX: Why did I need THE FIX ??
-            @idea.user_id = current_user.id
-            @idea.save
+            # @idea.user_id = current_user.id
+            # @idea.save
               
             redirect "/ideas/#{@idea.id}"
         else
@@ -181,12 +190,11 @@ class IdeasController < ApplicationController
 
     delete '/ideas/:id' do
         set_idea
-        if @idea.user == current_user
-            @idea.destroy
-            redirect "/index"
-        else
-            redirect "/index"
-        end
+        @idea.destroy if @idea.user == current_user
+               
+        
+            redirect "/ideas"
+       
     end
     
 ########################################################
