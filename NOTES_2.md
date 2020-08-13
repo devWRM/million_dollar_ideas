@@ -1,8 +1,10 @@
 
 
 IDEAS
-
-
+title: Soar Feet
+category: Foot Wear
+inspiration: Relief from sore feet through flight
+summary: Soar Feet gentle elevates you inches above the ground and glides you to your destination.
 
 
 name: "Elia",
