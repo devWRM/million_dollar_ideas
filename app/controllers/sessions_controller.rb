@@ -70,6 +70,8 @@ class SessionsController < ApplicationController
 
         # Verify data exists then create & presist with:        @user = User.create(params)
         # params => {"email"=>"abe@email.com", "password"=>"abe"}
+
+        redirect '/login' if User.find_by(email: params[:email])
         
         if params[:name] != "" && params[:email] != "" && params[:password] != ""
             # Use params for mass assignment:   User.create(params)
