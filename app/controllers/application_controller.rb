@@ -1,6 +1,6 @@
 
 class ApplicationController < Sinatra::Base
-
+    
     configure do
         set :public_folder, 'public'
         set :views, 'app/views'
@@ -32,7 +32,7 @@ class ApplicationController < Sinatra::Base
 
 
     helpers do
-
+        
         def logged_in?
             # ORIGINAL:     !!session[:email] && session[:email] != ""
             
