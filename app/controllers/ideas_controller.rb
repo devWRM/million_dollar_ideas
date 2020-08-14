@@ -1,6 +1,7 @@
 
 class IdeasController < ApplicationController
-
+    ### ORI = []
+    ### OriginalIdea = []
 
     get '/ideas' do
 
@@ -76,7 +77,6 @@ class IdeasController < ApplicationController
 
     get '/ideas/:id' do
         # Dynamic route because it changes to find a specific idea  
-# binding.pry
         # set_idea replaces: @idea = Idea.find(params[:id])
         # set_idea
         # @idea = Idea.find(params[:id]) 
@@ -85,17 +85,11 @@ class IdeasController < ApplicationController
             redirect '/ideas'
         end
 
-# binding.pry
         erb :'/ideas/show'
-
     end
 
-    # get '/ideas/show' do
-    #     erb :'/ideas/show'
-    # end
 
-    get '/ideas/:id/edit' do
-    
+    get '/ideas/:id/edit' do   
         # An edit idea FORM will show in the browser
         # Populate the edit idea form with previous data by retrieving it from the database
         # set_idea finds the idea, replaces:    @idea = Idea.find(params[:id])
@@ -104,12 +98,19 @@ class IdeasController < ApplicationController
         # THE FIX TEST
         # @idea.user_id = current_user.id
 
-# binding.pry
         if logged_in?
-# binding.pry
             # ORIG: if @idea.user_id == current_user.id
             if @idea.user == current_user
-# binding.pry
+
+                # Create a preserved Constant hash of @idea
+                # @original_idea = @idea
+                ### ORI << @idea
+                ### original_idea(ORI)
+                ### OriginalIdea << @idea
+
+                # Preserving original idea data for 4 mandatory check
+                # original_idea
+
                 # user confirmed (2 checks) to edit idea
                 erb :'/ideas/edit'
             else
@@ -122,14 +123,12 @@ class IdeasController < ApplicationController
             redirect '/'
         end
 
-
         ## Original if statement
         # if !logged_in?
         #     redirect '/login'
         # else
         #     erb :'/ideas/edit'
         # end
-
     end
 
         # The PATCH route is why config.ru has: use Rack::MethodOverride
@@ -138,12 +137,32 @@ class IdeasController < ApplicationController
         # set_idea finds the idea, replaces:    @idea = Idea.find(params[:id])
         set_idea
         # ...if any of the 4 params has no data 
-        if params[:title] == "" && params[:category] != "" && params[:inspiration] != "" && params[:summary] != ""
-            redirect "/ideas"
-        end
+        if params[:title] == "" || params[:category] == "" || params[:inspiration] == "" || params[:summary] == ""
+
+            # @idea.update(@original_idea)
+            # @idea.update({title: @original_idea.title, category: @original_idea.category, inspiration: @original_idea.inspiration, summary: @original_idea.summary, timeline_plan: @original_idea.timeline_plan, action_steps_accomplished: @original_idea.action_steps_accomplished, resources: @original_idea.resources, total_budgeted_dollars: @original_idea.total_budgeted_dollars, total_spent_dollars: @original_idea.total_spent_dollars})
+
+            # @idea.update({title: OriginalIdea[0].title, category: OriginalIdea.category, inspiration: OriginalIdea.inspiration, summary: OriginalIdea.summary, timeline_plan: OriginalIdea.timeline_plan, action_steps_accomplished: OriginalIdea.action_steps_accomplished, resources: OriginalIdea.resources, total_budgeted_dollars: OriginalIdea.total_budgeted_dollars, total_spent_dollars: OriginalIdea.total_spent_dollars})
 
 
-        if logged_in?
+            # @idea.update({title: ORI[0].title, category: ORI.category, inspiration: ORI.inspiration, summary: ORI.summary, timeline_plan: ORI.timeline_plan, action_steps_accomplished: ORI.action_steps_accomplished, resources: ORI.resources, total_budgeted_dollars: ORI.total_budgeted_dollars, total_spent_dollars: ORI.total_spent_dollars})
+
+
+
+
+
+
+
+            # "... BY-PASS NOW REDIRECT LATER ..."
+            # "... BY-PASS NOW REDIRECT LATER ..."
+
+            # break
+            # redirect "/ideas/<%= @idea.id %>/edit"
+            redirect "/ideas/#{@idea.id}"
+        # end
+
+
+        elsif logged_in?
                 if @idea.user == current_user
 
                     params.delete("_method")
@@ -200,6 +219,10 @@ class IdeasController < ApplicationController
     def set_idea
         @idea = Idea.find(params[:id])
     end
+
+    # def original_idea(x)
+    #    x
+    # end
 
 
 end
