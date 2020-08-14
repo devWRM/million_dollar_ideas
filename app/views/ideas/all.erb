@@ -1,0 +1,35 @@
+
+
+
+<h2>Here's a list of everybody's ideas.</br> Click the title link to see details of each idea.</h2>
+
+    <% list_number = 1 %>
+<% @ideas.each do |idea| %>
+  
+
+    <% if idea.user_id == current_user.id %>
+        
+
+        => <%= list_number %>. <%= idea.date_created %> <a href="/ideas/<%= idea.id %>"><%= idea.title %></a></br>
+   
+    
+
+    <% else %>
+
+        <%= list_number %>. <%= idea.date_created %> <a href="/ideas/<%= idea.id %>"><%= idea.title %></a></br>
+
+    
+    <% end %>
+
+    <% list_number += 1 %>
+
+
+<% end %>
+
+
+
+
+
+
+
+

@@ -1,9 +1,10 @@
 
 <ul>
     <% if logged_in? %>
-        <li><a href="/logout">LOG OUT</a></li>
-        <li><a href="/ideas">LIST ALL IDEAS</a></li>
-        <li><a href="/ideas/new">CREATE AN IDEA</a></li>
+    <li><a href="/ideas/new">CREATE AN IDEA</a></li>
+    <li><a href="/ideas">LIST YOUR IDEAS</a></li>
+    <li><a href="/ideas/all">LIST ALL IDEAS</a></li>
+    <li><a href="/logout">LOG OUT</a></li>
     <% end %>
 </ul>
 <%= yield %>

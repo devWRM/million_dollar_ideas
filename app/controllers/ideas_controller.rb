@@ -17,6 +17,15 @@ class IdeasController < ApplicationController
         erb :'ideas/index'
     end
 
+    get '/ideas/all' do
+        if !logged_in?
+            redirect '/'
+        end
+        
+        @ideas = Idea.all
+
+        erb :'ideas/all'
+    end
     
 
     get '/ideas/new' do
