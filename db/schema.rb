@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_04_181425) do
+ActiveRecord::Schema.define(version: 2020_08_18_133804) do
 
   create_table "ideas", force: :cascade do |t|
     t.string "title"
@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 2020_08_04_181425) do
     t.string "summary"
     t.datetime "date_created"
     t.string "timeline_plan"
-    t.datetime "deadline_date"
     t.string "action_steps_accomplished"
     t.string "resources"
     t.integer "total_budgeted_dollars"
@@ -27,6 +26,7 @@ ActiveRecord::Schema.define(version: 2020_08_04_181425) do
     t.boolean "within_budget"
     t.integer "user_id"
     t.string "category"
+    t.string "deadline_date"
   end
 
   create_table "users", force: :cascade do |t|
